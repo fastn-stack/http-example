@@ -26,7 +26,7 @@ $on-click$: $create-todo()
 
 -- void create-todo():
 
-http("/add-todo/", "POST", "this is the new todo")
+http("/-/hello/add-todo/", "POST", "this is the new todo")
 
 
 
