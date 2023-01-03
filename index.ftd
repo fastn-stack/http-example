@@ -1,0 +1,44 @@
+-- import: fpm/processors
+
+-- ftd.text: HTTP Test
+
+-- record todo:
+caption title:
+boolean done:
+
+-- todo list todos:
+$processor$: processors.http
+url: http://127.0.0.1:8002/todos/
+
+
+-- show-todo: $t
+$loop$: $todos as $t
+
+
+
+
+
+-- string title: add todo
+
+-- ftd.text: Create ToDo
+$on-click$: $create-todo()
+
+
+-- void create-todo():
+
+http("/add-todo/", "POST", "this is the new todo")
+
+
+
+
+-- component show-todo:
+caption todo t:
+
+-- ftd.column:
+padding.px: 5
+
+-- ftd.text: $show-todo.t.title
+
+-- end: ftd.column
+
+-- end: show-todo
